@@ -6,8 +6,14 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet6
 base: com.riverbankcomputing.PyQt.BaseApp
 base-version: 5.15-21.08
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    directory: lib/ffmpeg
+    add-ld-path: .
+    version: '21.08'
 cleanup-commands:
   - /app/cleanup-BaseApp.sh
+  - mkdir -p /app/lib/ffmpeg
 build-options:
   env:
     BASEAPP_REMOVE_WEBENGINE: '1'
@@ -23,28 +29,6 @@ finish-args:
 
 modules:
   - shared-modules/libusb/libusb.json
-
-  - name: ffmpeg
-    config-opts:
-      - --disable-static
-      - --enable-shared
-      - --disable-programs
-      - --disable-doc
-      - --disable-encoders
-      - --disable-muxers
-      - --disable-demuxers
-    cleanup:
-      - /share/ffmpeg
-    sources:
-      - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-4.4.2.tar.xz
-        sha256: af419a7f88adbc56c758ab19b4c708afbcae15ef09606b82b855291f6a6faa93
-        x-checker-data:
-          type: anitya
-          project-id: 5405
-          stable-only: true
-          versions: {<: '5.0'}
-          url-template: https://ffmpeg.org/releases/ffmpeg-$version.tar.xz
 
   - name: SysDVR-Client
     buildsystem: simple
