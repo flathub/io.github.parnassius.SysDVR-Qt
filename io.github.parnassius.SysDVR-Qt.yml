@@ -58,18 +58,17 @@ modules:
     sources:
       - type: git
         url: https://github.com/exelix11/SysDVR.git
-        commit: 900c31dd64bb666ff8fc7ffca63b748f17a1744c
-        disable-submodules: true
-      - type: git
-        url: https://github.com/exelix11/FFmpeg.AutoGen.git
-        commit: 3f9b4ac7f296c429a5040e5b557444e4dc9939d1
-        dest: Libs/FFmpeg.AutoGen
-      - type: git
-        url: https://github.com/exelix11/SharpRTSP.git
-        commit: a24436e0a2af165f0a8e10c920082bae3c21e3d3
-        dest: Libs/SharpRTSP
+        tag: v5.3.1
+        commit: 8274ad118d80f5b85fc7bae257e05655d9e9a54d
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/exelix11/SysDVR/tags
+          tag-query: first | .name
+          version-query: $tag | sub("^v"; "")
       - type: patch
         path: sdl.patch
+      - type: patch
+        path: ffmpeg-4.patch
       - nuget-sources.json
 
   - name: SysDVR-Qt
