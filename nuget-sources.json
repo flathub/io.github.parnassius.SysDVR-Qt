@@ -1,10 +1,10 @@
 [
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/ffmpeg.autogen/4.4.1.1/ffmpeg.autogen.4.4.1.1.nupkg",
-        "sha512": "15a12f8b5cb16f2cbd24d8d2908e9b788f43de3089160933c7119a361825fb3d058b778598fed7768a8b92211fe28bd4bed2add02d40fac9a3b3ec24d53bfedd",
+        "url": "https://api.nuget.org/v3-flatcontainer/ffmpeg.autogen/5.1.1/ffmpeg.autogen.5.1.1.nupkg",
+        "sha512": "b93d988d99dd1d5fdea051e7741be9d409dd45e22f8f63f318b75f4d08dccc7ac8eec208e10d4faeac5707c9f510c7e0b8fc19898b434420bb901c0b5fd4c461",
         "dest": "nuget-sources",
-        "dest-filename": "ffmpeg.autogen.4.4.1.1.nupkg"
+        "dest-filename": "ffmpeg.autogen.5.1.1.nupkg"
     },
     {
         "type": "file",
@@ -15,44 +15,107 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/6.0.11/microsoft.aspnetcore.app.runtime.linux-arm64.6.0.11.nupkg",
-        "sha512": "5b9c33da000e02b890b42d7a68c50e2f4511bbec38f056b7b5d71a20a4839acdba6c8725662f6515e1cb2c6ae880376ddccd039316891361f1ae88ad61473ca7",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/6.0.12/microsoft.aspnetcore.app.runtime.linux-arm64.6.0.12.nupkg",
+        "sha512": "4ffba811d15677c4ef034b85129ec5cf3f3207b57ef32c17c1a0bcf0b290effbb85fedd3d3958a333ef4b876df0d8206bcf1d1a1c5b0bc356cba22b6ad29976f",
         "dest": "nuget-sources",
-        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-arm64.6.0.11.nupkg"
+        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-arm64.6.0.12.nupkg"
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.11/microsoft.aspnetcore.app.runtime.linux-x64.6.0.11.nupkg",
-        "sha512": "c7a00845b3ecfb0a48ebf08d72900b8da91e86a12adda1990bca6b2ebf63fcc1574d3e85248ca57422a73b2c0495dd2bb1d68b07172cb348b0c1ad5fe6b8de7e",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.12/microsoft.aspnetcore.app.runtime.linux-x64.6.0.12.nupkg",
+        "sha512": "f3adb56d2e0ed4427607f409665c1fc3ab43d6e97ba1897d8f43bba949bad178097121256841986c5cbae71a232d2b6e761f29ac833e082889e86703ebc1a69e",
         "dest": "nuget-sources",
-        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-x64.6.0.11.nupkg"
+        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-x64.6.0.12.nupkg"
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/6.0.11/microsoft.netcore.app.runtime.linux-arm64.6.0.11.nupkg",
-        "sha512": "3118a8c4788f8c36ca0ce8c5f6a3987823d8f52a1a6779742db48c64a6d1b1243f3893590503a594a7dc178982d7665e832bdeb00aa652ab34ba069d6c9195e1",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg",
+        "sha512": "2c96988515f95714d4b83f5650f183dc6a564e0b3cf5255fa0e3ef48476debab4bde542f9f2f6c47f6620b7a71d6a515e4415e6d2e388b60817a29621d5690df",
         "dest": "nuget-sources",
-        "dest-filename": "microsoft.netcore.app.runtime.linux-arm64.6.0.11.nupkg"
+        "dest-filename": "microsoft.csharp.4.7.0.nupkg"
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/6.0.11/microsoft.netcore.app.runtime.linux-x64.6.0.11.nupkg",
-        "sha512": "253fd994d075e611b89650cb5bc06246eaa4211708336ee1b767834e6aaa268b4975b07fbfa3e717438a034c646dd959788ac1c2a7feb9dde1f555ba3be9147d",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.extensions.logging.abstractions/6.0.0/microsoft.extensions.logging.abstractions.6.0.0.nupkg",
+        "sha512": "bfb1b4b98242104803d1a65a1a051d0b8e481fbc987fa2f4b58a610ab459b4d24e8753c515c32a376dd2c6804d1ce2d39624b972a81c68e92481958e1a8a31df",
         "dest": "nuget-sources",
-        "dest-filename": "microsoft.netcore.app.runtime.linux-x64.6.0.11.nupkg"
+        "dest-filename": "microsoft.extensions.logging.abstractions.6.0.0.nupkg"
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg",
-        "sha512": "6bf892c274596fe2c7164e3d8503b24e187f64d0b7bec6d9b05eb95f04086fceb7a85ea6b2685d42dc465c52f6f0e6f636c0b3fddac48f6f0125dfd83e92d106",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/6.0.12/microsoft.netcore.app.runtime.linux-arm64.6.0.12.nupkg",
+        "sha512": "cdf0581b8ece1f01d97567a8de8e691555ea019e6c5a2154cc9e32c9373cd07897204c403892233a9d4e02a03222fb9ca5ed35062e3cbc5f2f2d50d9cb8cfcfb",
         "dest": "nuget-sources",
-        "dest-filename": "microsoft.netcore.platforms.1.1.0.nupkg"
+        "dest-filename": "microsoft.netcore.app.runtime.linux-arm64.6.0.12.nupkg"
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg",
-        "sha512": "e78f0cea69c14895b1b089644077dbce8631a626055d96522f4d29e061d8bfc3e48aa1419e74faf265b998612c03f721f5f0cef4690f824150a5689764dee601",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/6.0.12/microsoft.netcore.app.runtime.linux-x64.6.0.12.nupkg",
+        "sha512": "b08e107dd7bd74931caf8e576d8f41c3b5d471f438b54262eaae314828e8978b1e34178321075ca7a511100b964df2b4d2262d58e8b196a519ca0cdd41e19aa6",
         "dest": "nuget-sources",
-        "dest-filename": "netstandard.library.2.0.3.nupkg"
+        "dest-filename": "microsoft.netcore.app.runtime.linux-x64.6.0.12.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.win32.systemevents/6.0.0/microsoft.win32.systemevents.6.0.0.nupkg",
+        "sha512": "5e274ace996c3eba63099ed5116f9dc39f69f684f7c1e7623c28c3c73988b75c67dfcc929a50a761f0222df243dd540720a6e588e91dfa784f81bfce7a893875",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.win32.systemevents.6.0.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/ppy.sdl2-cs/1.0.82/ppy.sdl2-cs.1.0.82.nupkg",
+        "sha512": "5d2937ec77376c3472759ba4ef9b4c188275c94d0d620887055e93bf42f45ea16e5069fa9991b80bba2dd7e175d3fb6363f666adc717c12d5379afaaa8c6bb09",
+        "dest": "nuget-sources",
+        "dest-filename": "ppy.sdl2-cs.1.0.82.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/sharprtsp/1.0.0/sharprtsp.1.0.0.nupkg",
+        "sha512": "29d4a364856187f9ac02ed225f59d31bc13b32fa019b72f7798f481698f5d975ab2fbfaa644f82e4e02a343074d4c8936bb7e08f3f71f4e06b9d303a0150d448",
+        "dest": "nuget-sources",
+        "dest-filename": "sharprtsp.1.0.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/system.configuration.configurationmanager/6.0.0/system.configuration.configurationmanager.6.0.0.nupkg",
+        "sha512": "de58cb928d6303a16301fd7aa8edac379dfe6c47e6d80b21665f92bab9dd5ff52b3e244cf6df0f945f1c72e71c92337561dbf2752fc3324174a8c9ecc70c3247",
+        "dest": "nuget-sources",
+        "dest-filename": "system.configuration.configurationmanager.6.0.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/system.drawing.common/6.0.0/system.drawing.common.6.0.0.nupkg",
+        "sha512": "d61f0a3e01c3eac15f13fc1ba04a2c7ce4eac956400b2faa361fecabd3836d49d5bd344f3985ee3d94cdc3f6a72b8e07e423cdb2965b4f5ca2222b5de32988e4",
+        "dest": "nuget-sources",
+        "dest-filename": "system.drawing.common.6.0.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/system.security.accesscontrol/6.0.0/system.security.accesscontrol.6.0.0.nupkg",
+        "sha512": "64a36a103b954ab4b7e8a76c0e876579bd484c308e444c2d915fb9a0fd05ad63614501ed235c544afc9b431cb8a4cf0f0715b8ed414e85958e6d68579168fb45",
+        "dest": "nuget-sources",
+        "dest-filename": "system.security.accesscontrol.6.0.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/system.security.cryptography.protecteddata/6.0.0/system.security.cryptography.protecteddata.6.0.0.nupkg",
+        "sha512": "489b5dab0abfadfb8bc2d0437de83a1447918071949440e766db701c81c3518de6a38a3e0f699706b06d591ab5393c7bc0b2eaa81c15bff156339248e6c35730",
+        "dest": "nuget-sources",
+        "dest-filename": "system.security.cryptography.protecteddata.6.0.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/system.security.permissions/6.0.0/system.security.permissions.6.0.0.nupkg",
+        "sha512": "d4f2172cc3b164f104fa2e3a330b62f2a15f50e050a91659db5728f28d4d5d6ca8660eec3a4f922090181a54bc1e9f6634ca49750398360727d1bc59db620278",
+        "dest": "nuget-sources",
+        "dest-filename": "system.security.permissions.6.0.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/system.windows.extensions/6.0.0/system.windows.extensions.6.0.0.nupkg",
+        "sha512": "f51eec8166f97b5fcea24816ec737c24d5c5a5cb145ef2d33277c9a16044f40bc3fb97b4cfe7f9a23af704ede91586c6abd2acf00b277538bb304d77a1ca54f0",
+        "dest": "nuget-sources",
+        "dest-filename": "system.windows.extensions.6.0.0.nupkg"
     }
 ]
