@@ -1,0 +1,38 @@
+name: update-nuget-sources
+
+on:
+  push:
+    branches:
+      - 'update-*'
+  workflow_dispatch:
+
+jobs:
+  update-nuget-sources:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - name: Extract SysDVR commit
+        id: sysdvr-commit
+        run: echo "commit=$( yq '.modules[] | select(.name == "SysDVR-Client") | .sources[] | select(.type == "git") | .commit' io.github.parnassius.SysDVR-Qt.yml )" >> $GITHUB_OUTPUT
+      - name: Clone SysDVR
+        uses: actions/checkout@v3
+        with:
+          repository: exelix11/SysDVR
+          ref: ${{ steps.sysdvr-commit.outputs.commit }}
+          path: SysDVR
+      - name: Install Flatpak
+        run: sudo apt install -y --no-install-recommends flatpak
+      - name: Enable Flathub
+        run: flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+      - name: Install dotnet
+        run: flatpak install --noninteractive org.freedesktop.Sdk//21.08 org.freedesktop.Sdk.Extension.dotnet6//21.08
+      - name: Generate nuget-sources.json
+        run: python3 flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json SysDVR/Client/Client.csproj
+      - name: Create commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add nuget-sources.json
+          git commit -m "Update nuget-sources.json" && git push || true
