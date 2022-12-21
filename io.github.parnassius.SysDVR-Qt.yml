@@ -62,6 +62,46 @@ modules:
           url: https://api.github.com/repos/exelix11/SysDVR/tags
           tag-query: first | .name
           version-query: $tag | sub("^v"; "")
+      - type: file
+        only-arches: [x86_64]
+        url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.12/microsoft.aspnetcore.app.runtime.linux-x64.6.0.12.nupkg
+        sha512: f3adb56d2e0ed4427607f409665c1fc3ab43d6e97ba1897d8f43bba949bad178097121256841986c5cbae71a232d2b6e761f29ac833e082889e86703ebc1a69e
+        dest: nuget-sources
+        x-checker-data:
+          type: html
+          url: https://dotnetcli.blob.core.windows.net/dotnet/Runtime/6.0/latest.version
+          version-pattern: ^([\d\.a-z-]+)$
+          url-template: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/$version/microsoft.aspnetcore.app.runtime.linux-x64.$version.nupkg
+      - type: file
+        only-arches: [x86_64]
+        url: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/6.0.12/microsoft.netcore.app.runtime.linux-x64.6.0.12.nupkg
+        sha512: b08e107dd7bd74931caf8e576d8f41c3b5d471f438b54262eaae314828e8978b1e34178321075ca7a511100b964df2b4d2262d58e8b196a519ca0cdd41e19aa6
+        dest: nuget-sources
+        x-checker-data:
+          type: html
+          url: https://dotnetcli.blob.core.windows.net/dotnet/Runtime/6.0/latest.version
+          version-pattern: ^([\d\.a-z-]+)$
+          url-template: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/$version/microsoft.netcore.app.runtime.linux-x64.$version.nupkg
+      - type: file
+        only-arches: [aarch64]
+        url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/6.0.12/microsoft.aspnetcore.app.runtime.linux-arm64.6.0.12.nupkg
+        sha512: 4ffba811d15677c4ef034b85129ec5cf3f3207b57ef32c17c1a0bcf0b290effbb85fedd3d3958a333ef4b876df0d8206bcf1d1a1c5b0bc356cba22b6ad29976f
+        dest: nuget-sources
+        x-checker-data:
+          type: html
+          url: https://dotnetcli.blob.core.windows.net/dotnet/Runtime/6.0/latest.version
+          version-pattern: ^([\d\.a-z-]+)$
+          url-template: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/$version/microsoft.aspnetcore.app.runtime.linux-arm64.$version.nupkg
+      - type: file
+        only-arches: [aarch64]
+        url: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/6.0.12/microsoft.netcore.app.runtime.linux-arm64.6.0.12.nupkg
+        sha512: cdf0581b8ece1f01d97567a8de8e691555ea019e6c5a2154cc9e32c9373cd07897204c403892233a9d4e02a03222fb9ca5ed35062e3cbc5f2f2d50d9cb8cfcfb
+        dest: nuget-sources
+        x-checker-data:
+          type: html
+          url: https://dotnetcli.blob.core.windows.net/dotnet/Runtime/6.0/latest.version
+          version-pattern: ^([\d\.a-z-]+)$
+          url-template: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/$version/microsoft.netcore.app.runtime.linux-arm64.$version.nupkg
       - nuget-sources.json
 
   - name: SysDVR-Qt
