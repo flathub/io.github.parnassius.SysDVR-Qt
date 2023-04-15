@@ -8,10 +8,10 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/libusbdotnet/3.0.97-alpha/libusbdotnet.3.0.97-alpha.nupkg",
-        "sha512": "7603ea25e446e1c9b96425cc7b72e98949350928b77a02d65e81ad65fa79933a95994d3746ca7b8007fed5a0ef77e592f954dfd43c73e1422d0aae72ac4d5258",
+        "url": "https://api.nuget.org/v3-flatcontainer/libusbdotnet/3.0.102-alpha/libusbdotnet.3.0.102-alpha.nupkg",
+        "sha512": "e31e89f4c381101d844d5e036559aebb3c95f2eb8a749b76084c1887fc086feea77e9d61e5f7582c85d85a5566e8aa10aed9efaaa67a8c1383b353f06a4b9be7",
         "dest": "nuget-sources",
-        "dest-filename": "libusbdotnet.3.0.97-alpha.nupkg"
+        "dest-filename": "libusbdotnet.3.0.102-alpha.nupkg"
     },
     {
         "type": "file",
