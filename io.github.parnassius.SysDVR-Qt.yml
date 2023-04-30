@@ -55,8 +55,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/exelix11/SysDVR.git
-        tag: v5.5
-        commit: d297e0de224f7f2ff55cdc63d33efc1f7ce09553
+        tag: v5.5.5
+        commit: ebc579bcbf99a942276da726c51e9cb7224ad0d5
         x-checker-data:
           type: json
           url: https://api.github.com/repos/exelix11/SysDVR/tags
