@@ -27,7 +27,7 @@ jobs:
       - name: Enable Flathub
         run: flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
       - name: Install dotnet
-        run: flatpak install --noninteractive org.freedesktop.Sdk//21.08 org.freedesktop.Sdk.Extension.dotnet6//21.08
+        run: flatpak install --noninteractive org.freedesktop.Sdk//22.08 org.freedesktop.Sdk.Extension.dotnet6//22.08
       - name: Generate nuget-sources.json
         run: python3 flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json SysDVR/Client/Client.csproj
       - name: Create commit
