@@ -36,10 +36,10 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/ppy.sdl2-cs/1.0.82/ppy.sdl2-cs.1.0.82.nupkg",
-        "sha512": "5d2937ec77376c3472759ba4ef9b4c188275c94d0d620887055e93bf42f45ea16e5069fa9991b80bba2dd7e175d3fb6363f666adc717c12d5379afaaa8c6bb09",
+        "url": "https://api.nuget.org/v3-flatcontainer/ppy.sdl2-cs/1.0.652-alpha/ppy.sdl2-cs.1.0.652-alpha.nupkg",
+        "sha512": "cc733812ed862360409c4eb440bce0bc2024a6d13414997ccaffc80ef2919d1472fa9deece43325fa8240c6f7120e65601248d88ab2eed52d0adb6f1569965cf",
         "dest": "nuget-sources",
-        "dest-filename": "ppy.sdl2-cs.1.0.82.nupkg"
+        "dest-filename": "ppy.sdl2-cs.1.0.652-alpha.nupkg"
     },
     {
         "type": "file",
