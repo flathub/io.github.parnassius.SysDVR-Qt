@@ -4,19 +4,13 @@ runtime-version: 5.15-22.08
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet6
-base: com.riverbankcomputing.PyQt.BaseApp
-base-version: 5.15-22.08
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     directory: lib/ffmpeg
     add-ld-path: .
     version: '22.08'
 cleanup-commands:
-  - /app/cleanup-BaseApp.sh
   - mkdir -p /app/lib/ffmpeg
-build-options:
-  env:
-    BASEAPP_REMOVE_WEBENGINE: '1'
 
 command: sysdvr-qt
 finish-args:
@@ -48,6 +42,7 @@ modules:
           env:
             RUNTIME: linux-x64
     build-commands:
+      - mkdir -p /app/bin
       - dotnet publish -c Release --source ./nuget-sources ./Client/Client.csproj
         --runtime $RUNTIME --self-contained true
       - cp -r --remove-destination ./Client/bin/Release/net6.0/$RUNTIME/publish/*
@@ -105,13 +100,7 @@ modules:
       - nuget-sources.json
 
   - name: SysDVR-Qt
-    buildsystem: simple
-    build-commands:
-      - cp -r ./SysDVR_Qt /app
-      - install -Dm755 sysdvr-qt.sh /app/bin/sysdvr-qt
-      - install -Dm644 io.github.parnassius.SysDVR-Qt.desktop /app/share/applications/io.github.parnassius.SysDVR-Qt.desktop
-      - install -Dm644 io.github.parnassius.SysDVR-Qt.metainfo.xml /app/share/metainfo/io.github.parnassius.SysDVR-Qt.metainfo.xml
-      - install -Dm644 io.github.parnassius.SysDVR-Qt.svg /app/share/icons/hicolor/scalable/apps/io.github.parnassius.SysDVR-Qt.svg
+    buildsystem: qmake
     sources:
       - type: git
         url: https://github.com/Parnassius/SysDVR-Qt.git
@@ -122,7 +111,3 @@ modules:
           url: https://api.github.com/repos/Parnassius/SysDVR-Qt/tags
           tag-query: first | .name
           version-query: $tag
-      - type: script
-        commands:
-          - python3 /app/SysDVR_Qt/main.py
-        dest-filename: sysdvr-qt.sh
