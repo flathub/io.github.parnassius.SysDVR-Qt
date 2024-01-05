@@ -50,8 +50,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/exelix11/SysDVR.git
-        tag: v5.5.6
-        commit: fe0ca74223212ae1f25031f716e3f7c478136391
+        tag: v6.0
+        commit: 2856748885fa43ba37978da2315bc76a834b62db
         x-checker-data:
           type: json
           url: https://api.github.com/repos/exelix11/SysDVR/tags
@@ -59,8 +59,8 @@ modules:
           version-query: $tag | sub("^v"; "")
       - type: file
         only-arches: [x86_64]
-        url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.24/microsoft.aspnetcore.app.runtime.linux-x64.6.0.24.nupkg
-        sha512: 8325e5c6b6e662b2a3f8283042f135b037c5f22fd78becbcf6f6ff70312fd2ce3b7d0845bc9c8edade8531abdbd7f4b60b44358606d1ab578045c9da0583dc68
+        url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.25/microsoft.aspnetcore.app.runtime.linux-x64.6.0.25.nupkg
+        sha512: b4633649cdd291f03505712bd518627494a65773f68a958f51658e22f5773a09857c8f0fbc3d3db7cde33e9c17a66e34b2e7f80fbcb2733c45fc669eb096b796
         dest: nuget-sources
         x-checker-data:
           type: html
@@ -69,8 +69,8 @@ modules:
           url-template: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/$version/microsoft.aspnetcore.app.runtime.linux-x64.$version.nupkg
       - type: file
         only-arches: [x86_64]
-        url: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/6.0.24/microsoft.netcore.app.runtime.linux-x64.6.0.24.nupkg
-        sha512: 523095854bc09db83c2fb12e8135679334aed773d806e83b90e4caa9368e3c70ef5ab29e619aca98b34d9c010ffda11c03f0b3028e3738175a9d38b0a4137be4
+        url: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/6.0.25/microsoft.netcore.app.runtime.linux-x64.6.0.25.nupkg
+        sha512: 28de604641e5c0fe694afb9fb394139074c240e331c7bf2513843ef39309f83fc6fe49eab657082548f29557cda602f2d310fb83a190bade076858227a111e62
         dest: nuget-sources
         x-checker-data:
           type: html
@@ -79,8 +79,8 @@ modules:
           url-template: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/$version/microsoft.netcore.app.runtime.linux-x64.$version.nupkg
       - type: file
         only-arches: [aarch64]
-        url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/6.0.24/microsoft.aspnetcore.app.runtime.linux-arm64.6.0.24.nupkg
-        sha512: ef0e605133b69a869bade355ee7d0a6891a7f6a9b1f8cc606f3a029975f92bb2141125783fe05dc5676d4d231866a3c7ceea9159a41b32802d401692fc7b8ff4
+        url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/6.0.25/microsoft.aspnetcore.app.runtime.linux-arm64.6.0.25.nupkg
+        sha512: 8e747dc94ce413c8ce3c8ea6b3910e2ae9c81060e0fd73785675aff942bd10a99051236eb367f9f676badc3b8ef47051f60baa77388f8c5a9c87b7de1bc14b18
         dest: nuget-sources
         x-checker-data:
           type: html
@@ -89,8 +89,8 @@ modules:
           url-template: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/$version/microsoft.aspnetcore.app.runtime.linux-arm64.$version.nupkg
       - type: file
         only-arches: [aarch64]
-        url: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/6.0.24/microsoft.netcore.app.runtime.linux-arm64.6.0.24.nupkg
-        sha512: 7328f40409ec1df18b109d3572c073c1e4a96c2f1afb01c969c797161e4dc4732768d9ad42e19ab90cfa4e94bb8b023ff827efa3d357e2fed21287ac9597ece7
+        url: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/6.0.25/microsoft.netcore.app.runtime.linux-arm64.6.0.25.nupkg
+        sha512: 5591df69ffbaab9fcc455bebdba77ac47753782e9290f103d441d225d83c6634f926bae6ba9dea2fef99dff2b482beecb455c55518f4390ebca71bb8f528cee6
         dest: nuget-sources
         x-checker-data:
           type: html
