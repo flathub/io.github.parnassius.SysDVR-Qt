@@ -1,3 +1,5 @@
 /.flatpak-builder
 /build
 /SysDVR
+/nuget-sources-arm64.json
+/nuget-sources-x64.json
