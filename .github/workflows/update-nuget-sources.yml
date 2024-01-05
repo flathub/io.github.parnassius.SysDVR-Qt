@@ -6,6 +6,10 @@ on:
       - 'update-*'
   workflow_dispatch:
 
+env:
+  RUNTIME_VERSION: '23.08'
+  DOTNET_VERSION: '8'
+
 jobs:
   update-nuget-sources:
     runs-on: ubuntu-latest
@@ -27,9 +31,13 @@ jobs:
       - name: Enable Flathub
         run: flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
       - name: Install dotnet
-        run: flatpak install --noninteractive org.freedesktop.Sdk//22.08 org.freedesktop.Sdk.Extension.dotnet6//22.08
-      - name: Generate nuget-sources.json
-        run: python3 flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json SysDVR/Client/Client.csproj
+        run: flatpak install --noninteractive org.freedesktop.Sdk//${{ env.RUNTIME_VERSION }} org.freedesktop.Sdk.Extension.dotnet${{ env.DOTNET_VERSION }}//${{ env.RUNTIME_VERSION }}
+      - name: Generate nuget-sources-arm64.json
+        run: python3 flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources-arm64.json SysDVR/Client/Client.csproj --freedesktop ${{ env.RUNTIME_VERSION }} --dotnet ${{ env.DOTNET_VERSION }} --runtime linux-arm64
+      - name: Generate nuget-sources-x64.json
+        run: python3 flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources-x64.json SysDVR/Client/Client.csproj --freedesktop ${{ env.RUNTIME_VERSION }} --dotnet ${{ env.DOTNET_VERSION }} --runtime linux-x64
+      - name: Merge nuget-sources-arm64.json and nuget-sources-x64.json into nuget-sources.json
+        run: ./merge-nuget-sources.py
       - name: Create commit
         run: |
           git config user.name 'github-actions[bot]'

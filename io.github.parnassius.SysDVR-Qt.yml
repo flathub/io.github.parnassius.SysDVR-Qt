@@ -1,18 +1,11 @@
 app-id: io.github.parnassius.SysDVR-Qt
 runtime: org.kde.Platform
-runtime-version: 5.15-22.08
+runtime-version: 5.15-23.08
 sdk: org.kde.Sdk
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.dotnet6
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    directory: lib/ffmpeg
-    add-ld-path: .
-    version: '22.08'
-cleanup-commands:
-  - mkdir -p /app/lib/ffmpeg
+  - org.freedesktop.Sdk.Extension.dotnet8
 
-command: sysdvr-qt
+command: sysdvr-qt-wrapper
 finish-args:
   - --device=all
   - --share=network
@@ -20,17 +13,57 @@ finish-args:
   - --socket=fallback-x11
   - --socket=wayland
   - --socket=pulseaudio
+  - --filesystem=xdg-pictures/SysDVR:create
+  - --filesystem=xdg-videos/SysDVR:create
 
 modules:
   - shared-modules/libusb/libusb.json
 
+  - name: ffmpeg
+    config-opts:
+      - --disable-static
+      - --enable-shared
+      - --disable-programs
+      - --disable-doc
+    cleanup:
+      - /include
+      - /lib/pkgconfig
+      - /share/ffmpeg
+    sources:
+      - type: archive
+        url: https://ffmpeg.org/releases/ffmpeg-5.1.4.tar.xz
+        sha256: 54383bb890a1cd62580e9f1eaa8081203196ed53bde9e98fb6b0004423f49063
+        x-checker-data:
+          type: anitya
+          project-id: 5405
+          stable-only: true
+          versions: {<: '5.2'}
+          url-template: https://ffmpeg.org/releases/ffmpeg-$version.tar.xz
+
+  - name: CimguiSDL2Cross
+    buildsystem: cmake-ninja
+    no-make-install: true
+    subdir: cimgui
+    post-install:
+      - install -Dm644 cimgui.so /app/lib/cimgui.so
+    sources:
+      - type: git
+        url: https://github.com/exelix11/CimguiSDL2Cross.git
+        tag: r1
+        commit: c8c3ab89d8da93c268e4fdcfb1d257af43b038c7
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/exelix11/CimguiSDL2Cross/tags
+          tag-query: first | .name
+          version-query: $tag
+
   - name: SysDVR-Client
     buildsystem: simple
     build-options:
-      append-path: /usr/lib/sdk/dotnet6/bin
-      append-ld-library-path: /usr/lib/sdk/dotnet6/lib
+      append-path: /usr/lib/sdk/dotnet8/bin
+      append-ld-library-path: /usr/lib/sdk/dotnet8/lib
       env:
-        PKG_CONFIG_PATH: /app/lib/pkgconfig:/app/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/sdk/dotnet6/lib/pkgconfig
+        PKG_CONFIG_PATH: /app/lib/pkgconfig:/app/share/pkgconfig:/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/lib/sdk/dotnet8/lib/pkgconfig
         DOTNET_CLI_TELEMETRY_OPTOUT: '1'
         DOTNET_NOLOGO: '1'
         DOTNET_SKIP_FIRST_TIME_EXPERIENCE: '1'
@@ -45,69 +78,40 @@ modules:
       - mkdir -p /app/bin
       - dotnet publish -c Release --source ./nuget-sources ./Client/Client.csproj
         --runtime $RUNTIME --self-contained true
-      - cp -r --remove-destination ./Client/bin/Release/net6.0/$RUNTIME/publish/*
-        /app/bin
+      - cp -r ./Client/bin/Release/net8.0/$RUNTIME/publish /app/SysDVR-Client
+      - ln -s /app/SysDVR-Client/SysDVR-Client /app/bin/SysDVR-Client
+      - ln -s /usr/lib/x86_64-linux-gnu/libSDL2-2.0.so.0 /app/lib/libSDL2.so
+      - ln -s /usr/lib/x86_64-linux-gnu/libSDL2_image-2.0.so.0 /app/lib/libSDL2_image.so
+      - ln -s /usr/lib/x86_64-linux-gnu/libSDL2_mixer-2.0.so.0 /app/lib/libSDL2_mixer.so
+      - ln -s /usr/lib/x86_64-linux-gnu/libSDL2_net-2.0.so.0 /app/lib/libSDL2_net.so
+      - ln -s /usr/lib/x86_64-linux-gnu/libSDL2_ttf-2.0.so.0 /app/lib/libSDL2_ttf.so
     sources:
       - type: git
         url: https://github.com/exelix11/SysDVR.git
-        tag: v5.5.6
-        commit: fe0ca74223212ae1f25031f716e3f7c478136391
+        # tag: v6.0
+        commit: e18a70473c87ec9519ed5bbecb1403694a474292
         x-checker-data:
           type: json
           url: https://api.github.com/repos/exelix11/SysDVR/tags
           tag-query: first | .name
           version-query: $tag | sub("^v"; "")
-      - type: file
-        only-arches: [x86_64]
-        url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/6.0.24/microsoft.aspnetcore.app.runtime.linux-x64.6.0.24.nupkg
-        sha512: 8325e5c6b6e662b2a3f8283042f135b037c5f22fd78becbcf6f6ff70312fd2ce3b7d0845bc9c8edade8531abdbd7f4b60b44358606d1ab578045c9da0583dc68
-        dest: nuget-sources
-        x-checker-data:
-          type: html
-          url: https://dotnetcli.blob.core.windows.net/dotnet/Runtime/6.0/latest.version
-          version-pattern: ^([\d\.a-z-]+)$
-          url-template: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/$version/microsoft.aspnetcore.app.runtime.linux-x64.$version.nupkg
-      - type: file
-        only-arches: [x86_64]
-        url: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/6.0.24/microsoft.netcore.app.runtime.linux-x64.6.0.24.nupkg
-        sha512: 523095854bc09db83c2fb12e8135679334aed773d806e83b90e4caa9368e3c70ef5ab29e619aca98b34d9c010ffda11c03f0b3028e3738175a9d38b0a4137be4
-        dest: nuget-sources
-        x-checker-data:
-          type: html
-          url: https://dotnetcli.blob.core.windows.net/dotnet/Runtime/6.0/latest.version
-          version-pattern: ^([\d\.a-z-]+)$
-          url-template: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/$version/microsoft.netcore.app.runtime.linux-x64.$version.nupkg
-      - type: file
-        only-arches: [aarch64]
-        url: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/6.0.24/microsoft.aspnetcore.app.runtime.linux-arm64.6.0.24.nupkg
-        sha512: ef0e605133b69a869bade355ee7d0a6891a7f6a9b1f8cc606f3a029975f92bb2141125783fe05dc5676d4d231866a3c7ceea9159a41b32802d401692fc7b8ff4
-        dest: nuget-sources
-        x-checker-data:
-          type: html
-          url: https://dotnetcli.blob.core.windows.net/dotnet/Runtime/6.0/latest.version
-          version-pattern: ^([\d\.a-z-]+)$
-          url-template: https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/$version/microsoft.aspnetcore.app.runtime.linux-arm64.$version.nupkg
-      - type: file
-        only-arches: [aarch64]
-        url: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/6.0.24/microsoft.netcore.app.runtime.linux-arm64.6.0.24.nupkg
-        sha512: 7328f40409ec1df18b109d3572c073c1e4a96c2f1afb01c969c797161e4dc4732768d9ad42e19ab90cfa4e94bb8b023ff827efa3d357e2fed21287ac9597ece7
-        dest: nuget-sources
-        x-checker-data:
-          type: html
-          url: https://dotnetcli.blob.core.windows.net/dotnet/Runtime/6.0/latest.version
-          version-pattern: ^([\d\.a-z-]+)$
-          url-template: https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/$version/microsoft.netcore.app.runtime.linux-arm64.$version.nupkg
       - nuget-sources.json
 
   - name: SysDVR-Qt
     buildsystem: qmake
+    post-install:
+      - install -Dm755 sysdvr-qt-wrapper.sh /app/bin/sysdvr-qt-wrapper
+      - desktop-file-edit --set-key Exec --set-value sysdvr-qt-wrapper
+        /app/share/applications/io.github.parnassius.SysDVR-Qt.desktop
     sources:
       - type: git
         url: https://github.com/Parnassius/SysDVR-Qt.git
-        tag: 0.2.1
-        commit: 4c61320c2a96595c9efd9637428802221766abee
+        tag: 0.2.2
+        commit: ef929d58ccef3d5ae687422c0d2eab577e2b36d1
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Parnassius/SysDVR-Qt/tags
           tag-query: first | .name
           version-query: $tag
+      - type: file
+        path: sysdvr-qt-wrapper.sh
