@@ -106,8 +106,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/Parnassius/SysDVR-Qt.git
-        tag: 0.2.2
-        commit: ef929d58ccef3d5ae687422c0d2eab577e2b36d1
+        tag: 0.3.0
+        commit: 084b3cf322171f65412b8c5d894c9d73010db916
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Parnassius/SysDVR-Qt/tags
