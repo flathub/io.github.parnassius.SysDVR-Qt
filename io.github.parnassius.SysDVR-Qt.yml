@@ -49,8 +49,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/exelix11/CimguiSDL2Cross.git
-        tag: r1
-        commit: c8c3ab89d8da93c268e4fdcfb1d257af43b038c7
+        tag: r2
+        commit: f878bb6680baf17d36a0f0cf21cdfeb091a77ec1
         x-checker-data:
           type: json
           url: https://api.github.com/repos/exelix11/CimguiSDL2Cross/tags
@@ -89,25 +89,25 @@ modules:
       - type: git
         url: https://github.com/exelix11/SysDVR.git
         # tag: v6.0
-        commit: e18a70473c87ec9519ed5bbecb1403694a474292
+        commit: 2856748885fa43ba37978da2315bc76a834b62db
         x-checker-data:
           type: json
           url: https://api.github.com/repos/exelix11/SysDVR/tags
           tag-query: first | .name
           version-query: $tag | sub("^v"; "")
+        tag: v6.0
       - nuget-sources.json
 
   - name: SysDVR-Qt
     buildsystem: qmake
     post-install:
       - install -Dm755 sysdvr-qt-wrapper.sh /app/bin/sysdvr-qt-wrapper
-      - desktop-file-edit --set-key Exec --set-value sysdvr-qt-wrapper
-        /app/share/applications/io.github.parnassius.SysDVR-Qt.desktop
+      - desktop-file-edit --set-key Exec --set-value sysdvr-qt-wrapper /app/share/applications/io.github.parnassius.SysDVR-Qt.desktop
     sources:
       - type: git
         url: https://github.com/Parnassius/SysDVR-Qt.git
-        tag: 0.2.2
-        commit: ef929d58ccef3d5ae687422c0d2eab577e2b36d1
+        tag: 0.3.0
+        commit: 084b3cf322171f65412b8c5d894c9d73010db916
         x-checker-data:
           type: json
           url: https://api.github.com/repos/Parnassius/SysDVR-Qt/tags
