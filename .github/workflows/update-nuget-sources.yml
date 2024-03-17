@@ -41,17 +41,18 @@ jobs:
       - name: Merge nuget-sources-arm64.json and nuget-sources-x64.json into nuget-sources.json
         run: ./merge-nuget-sources.py
       - name: Create commit
-        if: ${{ github.ref != 'refs/heads/master' }}
+        if: ${{ github.ref_name != 'master' }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add nuget-sources.json
           git commit -m "Update nuget-sources.json" && git push || true
       - name: Create pull request
-        if: ${{ github.ref == 'refs/heads/master' }}
+        if: ${{ github.ref_name == 'master' }}
         uses: peter-evans/create-pull-request@v5
         with:
           add-paths: nuget-sources.json
           commit-message: "Update nuget-sources.json"
+          author: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
           title: "Update nuget-sources.json"
           branch: update-nuget-sources
