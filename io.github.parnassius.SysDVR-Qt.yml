@@ -49,8 +49,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/exelix11/CimguiSDL2Cross.git
-        tag: r1
-        commit: c8c3ab89d8da93c268e4fdcfb1d257af43b038c7
+        tag: r2
+        commit: f878bb6680baf17d36a0f0cf21cdfeb091a77ec1
         x-checker-data:
           type: json
           url: https://api.github.com/repos/exelix11/CimguiSDL2Cross/tags
@@ -88,8 +88,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/exelix11/SysDVR.git
-        # tag: v6.0
-        commit: e18a70473c87ec9519ed5bbecb1403694a474292
+        tag: v6.1
+        commit: 75cea056fb61d628c5d0701c2e64c3548b1f0a2b
         x-checker-data:
           type: json
           url: https://api.github.com/repos/exelix11/SysDVR/tags
