@@ -31,8 +31,8 @@ modules:
       - /share/ffmpeg
     sources:
       - type: archive
-        url: https://ffmpeg.org/releases/ffmpeg-5.1.4.tar.xz
-        sha256: 54383bb890a1cd62580e9f1eaa8081203196ed53bde9e98fb6b0004423f49063
+        url: https://ffmpeg.org/releases/ffmpeg-5.1.5.tar.xz
+        sha256: b822357b5a2c0542cdf284ef8f303ba007aea435e337af05c300c82f5a9858bc
         x-checker-data:
           type: anitya
           project-id: 5405
